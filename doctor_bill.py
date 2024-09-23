@@ -2,26 +2,17 @@ import random
 from datetime import datetime
 
 def generate_bill(patient_name, doctor_name, patient_number):
-    # Generate a random bill ID
     bill_id = random.randint(1000, 9999)
-    
-    # Current date
     date = datetime.now().strftime("%Y-%m-%d")
-    
-    # Sample services and prices
     services = {
-        "Consultation": 50.00,
-        "Blood Test": 30.00,
-        "X-Ray": 70.00,
-        "Prescription": 15.00,
-        "MRI Scan": 200.00
+        "Consultation": 500.00,
+        "Blood Test": 300.00,
+        "X-Ray": 700.00,
+        "Prescription": 105.00,
+        "MRI Scan": 2500.00
     }
-
-    # Generate random services
     selected_services = random.sample(list(services.items()), random.randint(1, len(services)))
     total_amount = sum(price for service, price in selected_services)
-
-    # Create the bill
     bill = f"""
     -------------------------
           DOCTOR BILL
@@ -45,7 +36,6 @@ def generate_bill(patient_name, doctor_name, patient_number):
 
     return bill
 
-# Example Usage
 if __name__ == "__main__":
     patient_name = input("Enter patient name: ")
     doctor_name = input("Enter doctor name: ")
